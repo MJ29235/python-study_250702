@@ -6,3 +6,5 @@ CREATE TABLE IF NOT EXISTS performance(
     date_range VARCHAR(100), -- DATE 형식이 아니라서 VARCHAR
     place VARCHAR(100)
 );
+DESC performance;
+SELECT * FROM performance;
