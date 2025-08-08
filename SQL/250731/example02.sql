@@ -1,12 +1,12 @@
 #내가 푼 문제!
--- CREATE DATABASE Dave;
--- USE Dave;
--- CREATE TABLE privit (
--- 	id INT UNSIGNED NOT NULL AUTO_INCREMENT,
---     name VARCHAR(50) NOT NULL,
---     modelnumber VARCHAR(15) NOT NULL,
---     series VARCHAR(30) NOT NULL,
---     PRIMARY KEY(id)
--- );
+CREATE DATABASE Dave;
+USE Dave;
+CREATE TABLE privit (
+	id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    name VARCHAR(50) NOT NULL,
+    modelnumber VARCHAR(15) NOT NULL,
+    series VARCHAR(30) NOT NULL,
+    PRIMARY KEY(id)
+);
 
--- DESC privit;
+DESC privit;

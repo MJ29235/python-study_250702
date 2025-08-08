@@ -25,7 +25,7 @@ CREATE TABLE mytable(
 
 # DROP DATABASE IF EXISTS dbname; -- 그냥 dbname; 도 가능 But error 가능성이 있어서 멈추는 것 방지 위해 IF EXIST!
 
--- CREATE DATABASE david;
+-- CREATE DATABASE david;customerreviewsreviewsreviewsperformance
 -- USE david; 
 -- CREATE TABLE mytable(
 -- 	id TINYINT UNSIGNED, -- 타이니 인트라서 256을 넘는 값을 넣으면 overflow남..
