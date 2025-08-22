@@ -170,7 +170,8 @@ WHERE inventory_id IN(
     )
 );
 
--- 9. address 테이블에는 address_id가 있지만, customer 테이블에는 없는 데이터의 갯수 출력
-SELECT * fROM address;
-SELECT * fROM customer;
-SELECT * FROM
+-- 9. address 테이블에는 address_id가 있지만, customer 테이블에는 없는 데이터의 갯수 출력 RIGHT OUTTER JOIN
+SELECT * FROM customer C
+RIGHT OUTER JOIN address A
+ON C.address_id=A.address_id
+WHERE customer_id IS NULL;
