@@ -4,13 +4,18 @@ db.movies.find()
 영화 서비스의 이용자·댓글·영화 데이터를 바탕으로, 마케팅팀이 바로 사용할 수 있는 두 가지 리포트를 만들어 주세요.
  결과는 각각 별도의 출력 구조로 제출합니다.
 1) 충성 사용자 리포트
-이용자와 댓글 데이터를 결합해, 총 댓글 수가 10개 이상인 이용자만 추립니다.
+look up이용자와 댓글 데이터를 결합해, 총 댓글 수가 10개 이상인 이용자만 추립니다.
 각 이용자에 대해 다음 지표를 계산해 주세요:
 commentsCount(총 댓글 수)
 avgTextLen(댓글 평균 길이, null/missing은 길이 0으로 간주)
 lastCommentDate(가장 최근 댓글 시점)
-결과에는 **이름(name), 이메일(email)**만 식별 정보로 포함하고, 위 활동 지표 **내림차순(많이·길게·최근 순)**으로 정렬해 상위 이용자가 누구인지 한눈에 보이도록 합니다.*/
-
+$project: 결과에는 **이름(name), 이메일(email)**만 식별 정보로 포함하고, 위 활동 지표 **내림차순(많이·길게·최근 순)**으로 정렬해 상위 이용자가 누구인지 한눈에 보이도록 합니다.*/
+db.comments.aggregate([
+    {$lookup:{from:"users",localField:"email",foreignField:"email",as:"UC"}},
+    {$group:{_id:{email:"$email",name:"$name"},sumComment:{$sum:1},
+        avgTextLen:{$avg:{$strLenCP:{$ifNull:["$text",""]}}},{lastCommentDate:{$max:$date}}}},
+    {$match:{sumComment:{$gte:10}}}
+])
 
 /*
 2) 영화 인사이트 리포트
@@ -19,6 +24,7 @@ lastCommentDate(가장 최근 댓글 시점)
 고평점 영화 개수: imdb.rating ≥ 8 작품의 총 개수(숫자 1개)
 장르별 상위 10: 장르별 작품 수를 집계해 상위 10개를 많이 나온 순으로 정렬
 연도별 평균 평점(최근 10년): 최신 연도를 기준으로 최근 10개 연도의 평균 평점을 산출(연도-오름차순 표기)
+
 출력 형식 가이드
 충성 사용자 리포트: 리스트(배열) 형태. 각 원소는 {name, email, commentsCount, avgTextLen, lastCommentDate}.
 영화 인사이트 리포트: 단일 문서(오브젝트) 형태.
