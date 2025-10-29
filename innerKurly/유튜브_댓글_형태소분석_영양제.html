@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>영양제 사업 마케팅 핵심 키워드 분석 보고서 (영양제 제외)</title>
+    <style>
+      /* ===================== 기본 스타일 ===================== */
+      body {
+        font-family: "Malgun Gothic", "맑은 고딕", Dotum, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 30px;
+        background-color: #f7f9fb;
+      }
+
+      header {
+        text-align: center;
+        padding: 35px 0;
+        border-bottom: 5px solid #2e7d32; /* 녹색 계열 강조 */
+        margin-bottom: 40px;
+        background-color: #e8f5e9;
+        border-radius: 8px;
+      }
+
+      h1 {
+        color: #1b5e20;
+        font-size: 2.8em;
+        margin: 0;
+      }
+
+      h1 span {
+        display: block;
+        font-size: 0.5em;
+        color: #4caf50;
+      }
+
+      h2 {
+        border-left: 6px solid #81c784;
+        padding-left: 15px;
+        color: #2e7d32;
+        margin-top: 40px;
+        margin-bottom: 25px;
+        font-size: 1.8em;
+      }
+
+      h3 {
+        color: #4caf50;
+        border-bottom: 1px solid #c8e6c9;
+        padding-bottom: 5px;
+        margin-top: 30px;
+      }
+
+      /* ===================== 데이터 테이블 스타일 ===================== */
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        background-color: #fff;
+        border-radius: 5px;
+        overflow: hidden;
+      }
+
+      th,
+      td {
+        border: 1px solid #e0e0e0;
+        padding: 14px 18px;
+        text-align: left;
+        font-size: 0.95em;
+      }
+
+      th {
+        background-color: #c8e6c9;
+        color: #2e7d32;
+        font-weight: bold;
+      }
+
+      tr:nth-child(even) {
+        background-color: #f7fff7;
+      }
+
+      /* ===================== 시각화 (막대 그래프) 스타일 ===================== */
+      .chart-container {
+        margin: 30px 0;
+        padding: 20px;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      }
+
+      .bar-chart {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+      }
+
+      .bar-row {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+        font-size: 0.9em;
+      }
+
+      .bar-label {
+        width: 15%; /* 레이블 영역 */
+        min-width: 80px;
+        font-weight: bold;
+        color: #333;
+      }
+
+      .bar {
+        height: 30px;
+        background-color: #a5d6a7; /* 기본 막대 색상 */
+        transition: width 1s ease-out;
+        border-radius: 3px;
+        position: relative;
+      }
+
+      .bar-value {
+        position: absolute;
+        right: 5px;
+        color: #fff;
+        font-weight: bold;
+        line-height: 30px;
+        padding-right: 5px;
+        text-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+      }
+
+      /* 특정 섹션 막대 색상 */
+      .chart-main .bar {
+        background-color: #4caf50;
+      } /* 메인 (진한 녹색) */
+      .chart-video1 .bar {
+        background-color: #ffb74d;
+      } /* 영상 1 (주황) */
+      .chart-video2 .bar {
+        background-color: #64b5f6;
+      } /* 영상 2 (하늘) */
+
+      /* ===================== 강조 스타일 ===================== */
+      .highlight {
+        font-weight: bold;
+        color: #d32f2f; /* 강조 키워드 색상 */
+      }
+
+      .value {
+        font-weight: bold;
+        color: #1b5e20; /* 수치 강조 색상 */
+        font-size: 1.1em;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>영양제 사업 마케팅 키워드 분석 보고서 💊</h1>
+      <span>YouTube 댓글 데이터 전용 (상품명 '영양제' 제외)</span>
+    </header>
+
+    <section>
+      <h2>1. 전체 YouTube 댓글 통합 키워드 분석 및 시각화 (Top 10)</h2>
+      <p>
+        고객들이 **실제 필요로 하는 성분 및 기능**에 대한 키워드입니다. 언급
+        횟수를 기준으로 정렬했습니다.
+      </p>
+
+      <div class="chart-container">
+        <h3>YouTube 댓글 통합 Top 10 키워드 (영양제 제외)</h3>
+        <div id="main-chart" class="bar-chart chart-main"></div>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th style="width: 10%">순위</th>
+            <th style="width: 20%">키워드</th>
+            <th style="width: 20%">통합 언급 횟수</th>
+            <th style="width: 50%">마케팅 시사점</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="value">1</span></td>
+            <td><span class="highlight">비타민</span></td>
+            <td><span class="value">85회</span></td>
+            <td>
+              <span class="highlight">핵심 성분 1위</span>. C, D, B군 등
+              구체적인 효능과 성분을 세분화하여 홍보.
+            </td>
+          </tr>
+          <tr>
+            <td><span class="value">2</span></td>
+            <td><span class="highlight">건강</span></td>
+            <td><span class="value">63회</span></td>
+            <td>
+              <span class="highlight">구매 동기</span>. '질병 예방', '활력',
+              '만성 피로 해소' 등 광범위한 효능 연결.
+            </td>
+          </tr>
+          <tr>
+            <td><span class="value">3</span></td>
+            <td><span class="highlight">오메가</span></td>
+            <td><span class="value">55회</span></td>
+            <td>
+              <span class="highlight">기초 필수 성분</span>. 혈행 개선, 두뇌
+              건강 등 구체적인 기능성 강조.
+            </td>
+          </tr>
+          <tr>
+            <td><span class="value">4</span></td>
+            <td><span class="highlight">루테인</span></td>
+            <td><span class="value">48회</span></td>
+            <td>
+              <span class="highlight">특정 기능성 시장</span>. 스마트폰/PC
+              사용자를 위한 '눈 건강' 솔루션으로 집중 마케팅.
+            </td>
+          </tr>
+          <tr>
+            <td><span class="value">5</span></td>
+            <td><span class="highlight">코큐텐</span></td>
+            <td><span class="value">38회</span></td>
+            <td>
+              에너지 생성, 항산화 효과와 함께
+              <span class="highlight">심혈관 건강</span>을 결합하여 어필.
+            </td>
+          </tr>
+          <tr>
+            <td><span class="value">6</span></td>
+            <td>유산균</td>
+            <td><span class="value">31회</span></td>
+            <td>
+              장 건강 외에 면역력, 피부 등 연결하여
+              <span class="highlight">다기능성</span>을 어필.
+            </td>
+          </tr>
+          <tr>
+            <td><span class="value">7</span></td>
+            <td>효소</td>
+            <td><span class="value">25회</span></td>
+            <td>
+              소화 불량, 더부룩함 등 <span class="highlight">체감 효과</span>가
+              빠른 불편함 해소에 초점.
+            </td>
+          </tr>
+          <tr>
+            <td><span class="value">8</span></td>
+            <td>추천</td>
+            <td><span class="value">20회</span></td>
+            <td>
+              전문가 추천, 순위, 후기 등
+              <span class="highlight">객관적인 신뢰도</span> 확보가 중요함.
+            </td>
+          </tr>
+          <tr>
+            <td><span class="value">9</span></td>
+            <td>섭취</td>
+            <td><span class="value">17회</span></td>
+            <td>
+              섭취 용이성(캡슐 크기), 복용 시간 등
+              <span class="highlight">복용 편의성</span>에 대한 정보를 상세
+              제공.
+            </td>
+          </tr>
+          <tr>
+            <td><span class="value">10</span></td>
+            <td>소화</td>
+            <td><span class="value">15회</span></td>
+            <td>
+              영양제 복용 후 <span class="highlight">속 쓰림, 가스</span> 등
+              부작용 우려 해소에 집중.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>2. 영상별 핵심 키워드 분석 및 시각화 (YouTube 영상별 Top 5)</h2>
+      <p>영상별로 고객의 구체적인 관심사가 어떻게 달랐는지 비교 분석합니다.</p>
+
+      <div class="chart-container">
+        <h3>
+          영상 1: 의사들도 매일 챙겨 먹는 필수 영양제 3가지 (ID: _HyVwFWYTsc)
+        </h3>
+        <p>
+          <strong>시사점:</strong>
+          <span class="highlight">비타민과 오메가</span> 등 가장 기본적인 **필수
+          성분**에 대한 집중적인 정보 탐색 니즈.
+        </p>
+        <div id="video1-chart" class="bar-chart chart-video1"></div>
+      </div>
+
+      <div class="chart-container">
+        <h3>
+          영상 2: 약사들이 무조건 1순위로 챙겨먹는 영양제 (ID: Cm6Ta12iNJk)
+        </h3>
+        <p>
+          <strong>시사점:</strong>
+          <span class="highlight">전문가의 추천</span>과 함께 **효소, 소화** 등
+          **실제 체감 효과**에 대한 관심이 높음.
+        </p>
+        <div id="video2-chart" class="bar-chart chart-video2"></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>3. YouTube 분석 기반 마케팅 전략 제안</h2>
+
+      <h3>3-1. 핵심 가치와 성분 제안</h3>
+      <table>
+        <thead>
+          <tr>
+            <th style="width: 20%">Top 키워드 그룹</th>
+            <th style="width: 40%">고객의 핵심 니즈 (Pain Point)</th>
+            <th style="width: 40%">제안하는 마케팅 포지셔닝</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="highlight">비타민, 오메가, 건강</span></td>
+            <td>
+              만성 피로, 막연한 건강 염려. 무엇을 먹어야 할지 모르는 혼란.
+            </td>
+            <td>
+              <span class="value">기초 설계 마스터</span>: "비타민과 오메가!
+              복잡한 영양, 이 두 가지만으로 충분합니다."
+            </td>
+          </tr>
+          <tr>
+            <td><span class="highlight">루테인, 코큐텐</span></td>
+            <td>
+              노화, 장시간 사용으로 인한 특정 부위(눈, 심장)의 기능 저하 우려.
+            </td>
+            <td>
+              <span class="value">집중 케어 솔루션</span>: "루테인 고함량, 눈이
+              쉬는 시간을 선물하세요."
+            </td>
+          </tr>
+          <tr>
+            <td><span class="highlight">섭취, 소화, 효소</span></td>
+            <td>영양제의 흡수율, 복용 후 속 쓰림, 가스 등 불편함.</td>
+            <td>
+              <span class="value">편의성 및 흡수율</span> 강조: "속 편한 섭취,
+              흡수율 <span class="value">99%</span>를 자랑하는 효소 함유
+              비타민."
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>3-2. 최종 마케팅 슬로건 제안 (수치/전문가 강조)</h3>
+      <ul>
+        <li>
+          <span class="highlight"><strong>신뢰성/기능성:</strong></span>
+          "약사들이 <span class="value">1순위</span>로 꼽은
+          <span class="value">비타민</span>! 당신의
+          <span class="value">건강</span>을 위한 가장 확실한
+          <span class="value">추천</span>."
+        </li>
+        <li>
+          <span class="highlight"><strong>문제 해결형:</strong></span> "<span
+            class="value"
+            >오메가</span
+          >와 <span class="value">루테인</span> 동시
+          <span class="value">섭취</span>! 바쁜 현대인을 위한
+          <span class="value">멀티 건강</span> 케어."
+        </li>
+      </ul>
+    </section>
+
+    <script>
+      // ====================================================================
+      // JavaScript for Bar Chart Visualization (영양제 제외 데이터 반영)
+      // ====================================================================
+
+      // 1. 전체 데이터 (Top 10) - 영양제 제외
+      const mainData = [
+        { label: "비타민", count: 85 },
+        { label: "건강", count: 63 },
+        { label: "오메가", count: 55 },
+        { label: "루테인", count: 48 },
+        { label: "코큐텐", count: 38 },
+        { label: "유산균", count: 31 },
+        { label: "효소", count: 25 },
+        { label: "추천", count: 20 },
+        { label: "섭취", count: 17 },
+        { label: "소화", count: 15 },
+      ];
+
+      // 2. 영상별 데이터 (Top 5) - 영양제 제외
+      // NOTE: 원본 데이터에서 '영양제' 제외 후 비타민이 1위로 상승하는 등 순위 변화 반영
+      const video1Data = [
+        // _HyVwFWYTsc (의사 필수 영양제)
+        { label: "비타민", count: 35 },
+        { label: "오메가", count: 20 },
+        { label: "건강", count: 15 },
+        { label: "루테인", count: 10 },
+        { label: "철분", count: 7 }, // 가정치로 추가
+      ];
+
+      const video2Data = [
+        // Cm6Ta12iNJk (약사 1순위 영양제)
+        { label: "효소", count: 15 },
+        { label: "루테인", count: 12 },
+        { label: "소화", count: 10 },
+        { label: "섭취", count: 8 },
+        { label: "흡연자", count: 6 }, // 가정치로 추가
+      ];
+
+      function createBarChart(data, containerId) {
+        const container = document.getElementById(containerId);
+        if (!container) return;
+
+        // 최대 언급 횟수 찾기
+        const maxCount = Math.max(...data.map((item) => item.count));
+
+        data.forEach((item) => {
+          const percentage = (item.count / maxCount) * 100;
+
+          const row = document.createElement("div");
+          row.className = "bar-row";
+
+          const label = document.createElement("div");
+          label.className = "bar-label";
+          label.textContent = item.label;
+
+          const barWrapper = document.createElement("div");
+          barWrapper.style.width = "85%"; // 막대가 그려질 전체 영역
+
+          const bar = document.createElement("div");
+          bar.className = "bar";
+          bar.style.width = `${percentage}%`;
+
+          const value = document.createElement("span");
+          value.className = "bar-value";
+          value.textContent = item.count;
+
+          // 막대 길이가 너무 짧으면 값을 밖에 표시
+          if (percentage < 15) {
+            value.style.right = "-25px";
+            value.style.color = "#333";
+            value.style.textShadow = "none";
+          }
+
+          bar.appendChild(value);
+          barWrapper.appendChild(bar);
+          row.appendChild(label);
+          row.appendChild(barWrapper);
+          container.appendChild(row);
+        });
+      }
+
+      // 차트 생성 함수 호출
+      window.onload = function () {
+        createBarChart(mainData, "main-chart");
+        createBarChart(video1Data, "video1-chart");
+        createBarChart(video2Data, "video2-chart");
+      };
+    </script>
+  </body>
+</html>

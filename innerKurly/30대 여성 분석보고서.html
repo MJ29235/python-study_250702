@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2025년 1분기 30대 여성 소비 및 상권 분석</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Noto Sans KR", sans-serif;
+        background-color: #f8f9fa;
+      }
+      .chart-container {
+        position: relative;
+        width: 100%;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+        height: 450px;
+        max-height: 50vh;
+      }
+    </style>
+  </head>
+  <body class="text-[#073B4C]">
+    <div class="container mx-auto p-4 sm:p-6 lg:p-8 max-w-7xl">
+      <header class="text-center mb-12">
+        <h1 class="text-4xl md:text-5xl font-bold text-[#118AB2]">
+          2025년 1분기 30대 여성 소비 트렌드
+        </h1>
+        <p class="mt-4 text-lg text-gray-600">
+          주요 상권 및 라이프스타일 소비 패턴 심층 분석
+        </p>
+      </header>
+
+      <main>
+        <section class="bg-white rounded-lg shadow-lg p-6 md:p-8 mb-12">
+          <h2 class="text-2xl font-bold text-[#118AB2] mb-4">
+            분석 개요: 소비의 두 축, 라이프스타일과 상업 활동
+          </h2>
+          <p class="text-gray-700 leading-relaxed">
+            본 인포그래픽은 2025년 1분기 카드 사용 데이터를 기반으로, 대한민국
+            주요 시군구의 소비 특성을 두 가지 핵심 지표로 분석합니다. 첫째는
+            '라이프스타일 소비 지수'로, 30대 여성이 주로 소비하는 음식,
+            개인서비스, 전문소매 등의 업종 비중을 통해 소비의 질적 특성을
+            파악합니다. 둘째는 '직장인/상업 활동 지수'로, 체류인구의 카드 사용
+            비중과 평균 체류 시간을 통해 해당 지역이 얼마나 활발한 상업 및 업무
+            중심지인지 분석합니다. 이 두 지표를 통해 각 지역의 숨겨진 가치와
+            잠재 고객의 특성을 발견할 수 있습니다.
+          </p>
+        </section>
+
+        <section class="bg-white rounded-lg shadow-lg p-6 md:p-8 mb-12">
+          <h2 class="text-2xl font-bold text-[#118AB2] mb-2 text-center">
+            핵심 인사이트: 라이프스타일 vs 상업 활동 매트릭스
+          </h2>
+          <p class="text-gray-600 text-center mb-6">
+            각 지역은 어떤 소비 특성을 가질까요? 아래 차트는 두 핵심 지표를
+            기준으로 지역들을 사분면에 배치하여 각 상권의 성격을 명확하게
+            보여줍니다.
+          </p>
+          <div class="chart-container" style="height: 500px; max-height: 60vh">
+            <canvas id="scatterChart"></canvas>
+          </div>
+          <div class="mt-6 text-sm text-gray-600 leading-relaxed">
+            <p>
+              <strong class="text-[#118AB2]">📈 분석:</strong> 차트는 각 지역의
+              소비 성향을 한눈에 파악하게 해줍니다.
+              <span class="font-bold text-[#FF6B6B]"
+                >우측 상단(혁신 주도형)</span
+              >에 위치한 '서울특별시 강남구'는 두 지표 모두 최상위권으로, 30대
+              여성의 트렌디한 소비와 활발한 상업 활동이 결합된 핵심 상권입니다.
+              <span class="font-bold text-[#06D6A0]"
+                >좌측 상단(업무 중심형)</span
+              >의 '서울특별시 중구'와 '부산광역시 동구'는 라이프스타일 소비보다
+              상업/업무 활동 지수가 월등히 높아, 직장인 유동인구가 소비를
+              주도하는 지역임을 알 수 있습니다.
+              <span class="font-bold text-[#FFD166]"
+                >우측 하단(거주 기반형)</span
+              >의 '대구광역시 수성구'는 상업 활동 지수는 낮지만 라이프스타일
+              소비 지수가 높아, 구매력 있는 30대 여성이 거주하며 지역 내 소비를
+              이끄는 특성을 보입니다.
+            </p>
+          </div>
+        </section>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12">
+          <section class="bg-white rounded-lg shadow-lg p-6 md:p-8">
+            <h2 class="text-2xl font-bold text-[#118AB2] mb-4 text-center">
+              Top 5: 30대 여성 라이프스타일 소비 지역
+            </h2>
+            <p class="text-center text-gray-600 mb-6">
+              어떤 지역이 30대 여성의 지갑을 열게 할까요? 음식, 쇼핑, 자기계발
+              등 라이프스타일 관련 소비가 가장 활발한 지역 TOP 5입니다.
+            </p>
+            <div
+              class="chart-container"
+              style="height: 400px; max-height: 45vh"
+            >
+              <canvas id="lifestyleRankChart"></canvas>
+            </div>
+          </section>
+          <section class="bg-white rounded-lg shadow-lg p-6 md:p-8">
+            <h2 class="text-2xl font-bold text-[#118AB2] mb-4 text-center">
+              Top 5 지역 소비 패턴 비교
+            </h2>
+            <p class="text-center text-gray-600 mb-6">
+              상위 5개 지역은 구체적으로 어떤 분야에 소비가 집중될까요? 레이더
+              차트를 통해 각 지역의 소비 DNA를 비교 분석합니다.
+            </p>
+            <div
+              class="chart-container"
+              style="height: 400px; max-height: 45vh"
+            >
+              <canvas id="lifestyleRadarChart"></canvas>
+            </div>
+          </section>
+        </div>
+        <div class="bg-white rounded-lg shadow-lg p-6 md:p-8 mb-12 -mt-6">
+          <p class="text-gray-700 leading-relaxed">
+            <strong class="text-[#118AB2]">💡 심층 분석:</strong> '강남구'는
+            모든 업종에서 고른 강세를 보이며, 특히 '전문소매'와 '교육' 분야에서
+            독보적입니다. 반면, '중구'는 '음식업' 비중이 압도적으로 높아
+            전형적인 오피스 상권의 특징을 보여줍니다. 주목할 점은 '성남시
+            분당구'로, '교육' 분야 소비 비중이 15%에 달해 30대 여성의 높은
+            교육열과 자녀 양육 관련 소비 특성이 두드러집니다. 이는 타겟 마케팅
+            시 중요한 시사점을 제공합니다.
+          </p>
+        </div>
+
+        <section class="bg-white rounded-lg shadow-lg p-6 md:p-8 mb-12">
+          <h2 class="text-2xl font-bold text-[#118AB2] mb-4 text-center">
+            Top 5: 직장인 밀집 및 상업 활동 지역
+          </h2>
+          <p class="text-center text-gray-600 mb-6">
+            대한민국의 경제 심장부는 어디일까요? 체류인구(외부 유입인구)의 소비
+            비중과 짧은 체류시간을 바탕으로 선정한 상업/업무 활동 핵심 지역 TOP
+            5입니다.
+          </p>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+            <div
+              class="md:col-span-2 chart-container"
+              style="height: 400px; max-height: 45vh"
+            >
+              <canvas id="commercialRankChart"></canvas>
+            </div>
+            <div class="text-center">
+              <h3 class="text-xl font-bold text-[#073B4C]">
+                1위: 서울특별시 중구
+              </h3>
+              <div class="my-4">
+                <p class="text-4xl font-bold text-[#FF6B6B]">65.0%</p>
+                <p class="text-gray-500">체류인구 카드사용 비중</p>
+              </div>
+              <div>
+                <p class="text-4xl font-bold text-[#06D6A0]">4.5시간</p>
+                <p class="text-gray-500">평균 체류시간</p>
+              </div>
+            </div>
+          </div>
+          <div class="mt-6 text-gray-700 leading-relaxed">
+            <p>
+              <strong class="text-[#118AB2]">🏢 분석:</strong> '서울특별시
+              중구'가 압도적인 1위를 차지했습니다. 전체 카드 소비의 65%가 외부
+              유입 인구로부터 발생하며, 평균 체류시간은 4.5시간으로 매우
+              짧습니다. 이는 거주보다는 업무, 쇼핑, 관광 등 명확한 목적을 가진
+              유동인구가 상권을 이끌어가는 대표적인 도심 상업지구(CBD)임을
+              증명합니다. '부산 동구'와 '서울 종로구' 역시 유사한 패턴을 보이며,
+              전통적인 상업 중심지로서의 역할을 굳건히 하고 있습니다.
+            </p>
+          </div>
+        </section>
+      </main>
+
+      <footer class="text-center mt-12 py-6 border-t">
+        <p class="text-gray-500">
+          본 분석은 2025년 1분기 카드사 데이터를 기반으로 재구성되었습니다.
+        </p>
+      </footer>
+    </div>
+
+    <script>
+      const csvData = `기준연월,시도,시군구,30대_전체_평균_카드사용액(천원),체류인구_카드사용_비중(%),평균체류시간(시간),라이프스타일_소비_지수,라이프스타일_소비_순위,직장인_상업_활동_지수,직장인_상업_활동_순위,음식업(%),개인서비스(%),보건의료(%),교육(%),종합소매(%),전문소매(%)
+202503,서울특별시,강남구,250.0,62.5,5.2,80.25,1,100.93,2,31.55,6.50,13.00,11.00,13.25,18.20
+202503,서울특별시,중구,225.0,65.0,4.5,75.80,2,102.78,1,40.10,7.90,11.90,0.90,11.00,15.00
+202503,경기도,성남시 분당구,205.0,49.5,8.8,73.10,3,78.23,8,29.50,5.10,7.50,15.00,10.00,16.00
+202503,부산광역시,해운대구,180.0,38.0,10.1,70.00,4,60.68,14,38.00,4.00,12.00,1.50,15.00,14.50
+202503,인천광역시,연수구,175.0,38.5,10.5,68.50,5,60.23,15,35.00,4.50,8.00,5.50,13.00,15.50
+202503,대전광역시,유성구,190.0,33.0,11.5,66.90,6,54.83,18,30.20,3.20,11.20,7.50,10.00,14.80
+202503,경상남도,창원시 성산구,160.0,35.5,11.8,65.50,7,55.03,17,33.00,4.20,10.20,5.00,10.00,13.10
+202503,광주광역시,서구,170.0,39.0,11.0,64.00,8,60.78,13,31.00,3.80,9.70,7.00,10.00,12.50
+202503,충청남도,천안시 서북구,165.0,41.0,10.8,63.80,9,63.28,11,32.50,3.50,9.30,6.50,10.00,12.00
+202503,대구광역시,수성구,185.0,30.0,12.5,63.50,10,48.08,20,29.00,4.00,7.50,8.00,15.00,15.00
+202503,부산광역시,부산진구,190.0,53.5,7.8,63.00,11,84.48,6,30.00,5.00,11.00,2.00,15.00,15.00
+202503,서울특별시,종로구,210.0,58.5,6.5,62.50,12,94.23,4,30.50,6.00,10.00,1.00,15.00,15.00
+202503,경기도,수원시 영통구,195.0,47.0,9.5,62.00,13,73.68,9,28.00,5.00,8.50,8.00,10.00,12.50
+202503,인천광역시,남동구,165.0,48.0,9.1,61.50,14,75.93,9,30.50,4.00,9.00,4.00,15.00,10.00
+202503,부산광역시,동구,195.0,60.0,6.1,60.00,15,96.68,3,31.90,2.70,19.30,0.50,20.50,12.00
+202503,경기도,화성시,170.0,40.0,10.0,59.00,16,63.68,10,30.00,4.00,8.00,5.00,12.00,10.00
+202503,경기도,용인시 수지구,180.0,32.0,12.0,58.50,17,52.43,19,25.00,3.00,9.00,10.00,11.00,15.50
+202503,대구광역시,중구,188.0,55.0,7.0,57.50,18,87.03,5,35.00,4.50,10.00,1.00,15.00,7.00
+202503,서울특별시,영등포구,215.0,50.0,8.5,57.00,19,77.53,8,30.00,5.50,9.00,1.00,13.00,8.50
+202503,경기도,안양시 동안구,170.0,35.0,11.0,56.50,20,56.83,16,28.00,4.50,8.00,6.00,10.00,10.00`;
+
+      function parseCSV(data) {
+        const rows = data.trim().split("\n");
+        const headers = rows[0].split(",");
+        return rows.slice(1).map((row) => {
+          const values = row.split(",");
+          const obj = {};
+          headers.forEach((header, i) => {
+            const cleanHeader = header.trim();
+            let value = values[i] ? values[i].trim() : "";
+            if (!isNaN(value) && value !== "") {
+              value = parseFloat(value);
+            }
+            obj[cleanHeader] = value;
+          });
+          return obj;
+        });
+      }
+
+      function wrapLabel(str, maxWidth) {
+        if (str.length <= maxWidth) {
+          return str;
+        }
+        const words = str.split(" ");
+        let lines = [];
+        let currentLine = "";
+        words.forEach((word) => {
+          if ((currentLine + word).length > maxWidth) {
+            lines.push(currentLine.trim());
+            currentLine = "";
+          }
+          currentLine += word + " ";
+        });
+        lines.push(currentLine.trim());
+        return lines;
+      }
+
+      const tooltipTitleCallback = (tooltipItems) => {
+        const item = tooltipItems[0];
+        let label = item.chart.data.labels[item.dataIndex];
+        if (Array.isArray(label)) {
+          return label.join(" ");
+        }
+        return label;
+      };
+
+      const chartColors = {
+        red: "#FF6B6B",
+        yellow: "#FFD166",
+        green: "#06D6A0",
+        blue: "#118AB2",
+        darkBlue: "#073B4C",
+      };
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const parsedData = parseCSV(csvData);
+
+        const scatterCtx = document
+          .getElementById("scatterChart")
+          .getContext("2d");
+        new Chart(scatterCtx, {
+          type: "scatter",
+          data: {
+            datasets: [
+              {
+                label: "시군구별 소비 특성",
+                data: parsedData.map((d) => ({
+                  x: d["라이프스타일_소비_지수"],
+                  y: d["직장인_상업_활동_지수"],
+                  label: d["시군구"],
+                })),
+                backgroundColor: chartColors.blue,
+                borderColor: chartColors.darkBlue,
+                borderWidth: 1,
+                pointRadius: 6,
+                pointHoverRadius: 9,
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+              x: {
+                title: {
+                  display: true,
+                  text: "라이프스타일 소비 지수",
+                  font: { size: 14 },
+                },
+              },
+              y: {
+                title: {
+                  display: true,
+                  text: "직장인/상업 활동 지수",
+                  font: { size: 14 },
+                },
+              },
+            },
+            plugins: {
+              legend: { display: false },
+              tooltip: {
+                callbacks: {
+                  label: function (context) {
+                    const dataPoint = context.dataset.data[context.dataIndex];
+                    return `${
+                      dataPoint.label
+                    }: (라이프스타일: ${dataPoint.x.toFixed(
+                      2
+                    )}, 상업활동: ${dataPoint.y.toFixed(2)})`;
+                  },
+                },
+              },
+            },
+          },
+        });
+
+        const lifestyleData = [...parsedData]
+          .sort(
+            (a, b) => a["라이프스타일_소비_순위"] - b["라이프스타일_소비_순위"]
+          )
+          .slice(0, 5);
+        const lifestyleRankCtx = document
+          .getElementById("lifestyleRankChart")
+          .getContext("2d");
+        new Chart(lifestyleRankCtx, {
+          type: "bar",
+          data: {
+            labels: lifestyleData.map((d) =>
+              wrapLabel(d["시도"] + " " + d["시군구"], 16)
+            ),
+            datasets: [
+              {
+                label: "라이프스타일 소비 지수",
+                data: lifestyleData.map((d) => d["라이프스타일_소비_지수"]),
+                backgroundColor: [
+                  chartColors.red,
+                  chartColors.yellow,
+                  chartColors.green,
+                  chartColors.blue,
+                  chartColors.darkBlue,
+                ],
+              },
+            ],
+          },
+          options: {
+            indexAxis: "y",
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: { display: false },
+              title: { display: true, text: "라이프스타일 소비 지수 Top 5" },
+              tooltip: { callbacks: { title: tooltipTitleCallback } },
+            },
+          },
+        });
+
+        const lifestyleRadarCtx = document
+          .getElementById("lifestyleRadarChart")
+          .getContext("2d");
+        const radarData = {
+          labels: [
+            "음식업(%)",
+            "개인서비스(%)",
+            "전문소매(%)",
+            "교육(%)",
+            "보건의료(%)",
+          ],
+          datasets: lifestyleData.map((d, i) => ({
+            label: d["시군구"],
+            data: [
+              d["음식업(%)"],
+              d["개인서비스(%)"],
+              d["전문소매(%)"],
+              d["교육(%)"],
+              d["보건의료(%)"],
+            ],
+            backgroundColor: Object.values(chartColors)[i] + "40",
+            borderColor: Object.values(chartColors)[i],
+            borderWidth: 2,
+            pointBackgroundColor: Object.values(chartColors)[i],
+          })),
+        };
+        new Chart(lifestyleRadarCtx, {
+          type: "radar",
+          data: radarData,
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: { position: "top" },
+              title: { display: true, text: "Top 5 지역 업종별 소비 비중" },
+            },
+            scales: {
+              r: {
+                angleLines: { color: "rgba(0, 0, 0, 0.1)" },
+                grid: { color: "rgba(0, 0, 0, 0.1)" },
+                pointLabels: { font: { size: 12 } },
+                suggestedMin: 0,
+              },
+            },
+          },
+        });
+
+        const commercialData = [...parsedData]
+          .sort(
+            (a, b) => a["직장인_상업_활동_순위"] - b["직장인_상업_활동_순위"]
+          )
+          .slice(0, 5);
+        const commercialRankCtx = document
+          .getElementById("commercialRankChart")
+          .getContext("2d");
+        new Chart(commercialRankCtx, {
+          type: "bar",
+          data: {
+            labels: commercialData.map((d) =>
+              wrapLabel(d["시도"] + " " + d["시군구"], 16)
+            ),
+            datasets: [
+              {
+                label: "직장인/상업 활동 지수",
+                data: commercialData.map((d) => d["직장인_상업_활동_지수"]),
+                backgroundColor: [
+                  chartColors.blue,
+                  chartColors.red,
+                  chartColors.green,
+                  chartColors.darkBlue,
+                  chartColors.yellow,
+                ],
+              },
+            ],
+          },
+          options: {
+            indexAxis: "y",
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: { display: false },
+              title: { display: true, text: "직장인/상업 활동 지수 Top 5" },
+              tooltip: { callbacks: { title: tooltipTitleCallback } },
+            },
+          },
+        });
+      });
+    </script>
+  </body>
+</html>
